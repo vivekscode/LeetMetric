@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded',function(){
     const mediumProgressCircle = document.querySelector('.medium-progress');
     const hardProgressCircle = document.querySelector('.hard-progress');
     const statsContainer = document.querySelector('.stats-container');
-    
+    const container = document.querySelector('.container');
 
     function validateUsername(username){
         if(username.trim() === ''){
@@ -63,6 +63,9 @@ document.addEventListener('DOMContentLoaded',function(){
             }
         ).join("");
 
+        // window.scrollTo({ top: 0, behavior: 'smooth' });
+        container.style.setProperty('height', '400px');
+
     }
 
     async function fetchUserDetails(username) {
@@ -96,6 +99,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
     searchButton.addEventListener('click',function(){
         statsContainer.style.setProperty('display','none');
+        container.style.setProperty('height', 'auto');
         const username = usernameInput.value;
         if(validateUsername(username)){
             fetchUserDetails(username);
